@@ -46,7 +46,7 @@ public class student {
 
         if (operation == 'u') {//for update
             try {
-                ps = con.prepareStatement("UPDATE `student` SET `first_name`= ?, `last_name` = ?, `sex` = ?, `phone`= ?, `birthdate` = ?, `address` = ? WHERE `id` = ?");
+                ps = con.prepareStatement("UPDATE `student` SET `first_name`= ?, `last_name` = ?, `sex` = ?, `birthdate`= ?, `phone` = ?, `address` = ? WHERE `id` = ?");
 
                 ps.setString(1, fname);
                 ps.setString(2, lname);

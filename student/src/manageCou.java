@@ -75,6 +75,7 @@ public class manageCou extends javax.swing.JFrame {
 
         jButtonadd.setBackground(new java.awt.Color(102, 255, 102));
         jButtonadd.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Button-Add-icon.png"))); // NOI18N
         jButtonadd.setText("ADD");
         jButtonadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +85,7 @@ public class manageCou extends javax.swing.JFrame {
 
         jButtonremove.setBackground(new java.awt.Color(255, 0, 0));
         jButtonremove.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonremove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Close-icon.png"))); // NOI18N
         jButtonremove.setText("REMOVE");
         jButtonremove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +95,7 @@ public class manageCou extends javax.swing.JFrame {
 
         jButton_edit.setBackground(new java.awt.Color(102, 255, 102));
         jButton_edit.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Pencil-icon.png"))); // NOI18N
         jButton_edit.setText("EDIT");
         jButton_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +132,7 @@ public class manageCou extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,11 +147,11 @@ public class manageCou extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jButtonremove)
-                        .addGap(53, 53, 53)
-                        .addComponent(jButton_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jButtonadd, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50)
+                .addComponent(jButtonadd, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74))
         );
@@ -184,7 +187,9 @@ public class manageCou extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +283,7 @@ public class manageCou extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonremoveActionPerformed
 
     private void jButton_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_editActionPerformed
-        if (!c.isCourseExist(jTextField_label.getText())) {
+//        if (!c.isCourseExist(jTextField_label.getText())) {
 
             int id = Integer.valueOf(jTextField_id.getText());
             String subject = jTextField_label.getText();
@@ -288,9 +293,9 @@ public class manageCou extends javax.swing.JFrame {
             manageCou.jTable1.setModel(new DefaultTableModel(null, new Object[]{"ID", "Subject", "Hours"}));
             c.fillCourseJtable(manageCou.jTable1);
             //  JOptionPane.showMessageDialog(null, "Course Edited");
-        } else {
-            JOptionPane.showMessageDialog(null, "Course Already Exist");
-        }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Course Already Exist");
+//        }
 //        
 
     }//GEN-LAST:event_jButton_editActionPerformed

@@ -103,6 +103,7 @@ public class Addstu extends javax.swing.JFrame {
 
         jButton_canceladd.setBackground(new java.awt.Color(255, 102, 102));
         jButton_canceladd.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton_canceladd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Close-icon.png"))); // NOI18N
         jButton_canceladd.setText("CANCEL");
         jButton_canceladd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +113,7 @@ public class Addstu extends javax.swing.JFrame {
 
         jButtonaddstu.setBackground(new java.awt.Color(255, 102, 102));
         jButtonaddstu.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonaddstu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Button-Add-icon.png"))); // NOI18N
         jButtonaddstu.setText("ADD");
         jButtonaddstu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +154,7 @@ public class Addstu extends javax.swing.JFrame {
                     .addComponent(jTextField_ho, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
+                .addContainerGap(114, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +200,7 @@ public class Addstu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonaddstu)
                     .addComponent(jButton_canceladd))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,29 +264,25 @@ return true;
          sex = "Female";
         }
         
-        if(verifText()){
-//            if (jDateChooser.getDate() == null) {
-//        JOptionPane.showMessageDialog(null, "Please select a birthdate!");
-//        return;
-//    }
-            
-            
-            
-            
-         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        if(verifText()){        
+       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
        String bdate = dateFormat.format(jDateChooser.getDate());
        student std = new student();
        std.insertUpdateDeleteStudent('i', null, fname, lname, sex, bdate, phone, address);
-        Login.jLabel_count.setText("STUDENT COUNT = " + Integer.toString(Myfunction.countData("student")));
-        
+        Login.jLabel_count.setText(" STUDENT COUNT = " + Integer.toString(Myfunction.countData("student")));
+       // Login.jLabel_count.setText("STUDENT COUNT = " + Myfunction.countData("student"));
+
+         try{
           manageStu.jTable1.setModel(new DefaultTableModel(null, new Object[]{"ID", "FIRST_NAME", "lAST_NAME","SEX", "BIRTHDATE","PHONE", "ADDRESS"}));
-          
-        std.fillStudentJtable(manageStu.jTable1, "");
+          std.fillStudentJtable(manageStu.jTable1, "");
+         }catch(Exception ex){
+         System.out.println(ex.getMessage());
+         }
+         
+       
+     
         }
-      // SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-      // String bdate = dateFormat.format(jDateChooser.getDate());
-      // student stu = new student();
-      // stu.insertUpdateDeleteStudent('i', null, fname, lname, sex, bdate, phone, address);
+    
        
     }//GEN-LAST:event_jButtonaddstuActionPerformed
 
